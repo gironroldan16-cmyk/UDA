@@ -41,7 +41,7 @@ body {
   min-height: 70px;
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -116,8 +116,6 @@ body {
 
 }
 
-
-
 /* =========================
    HERO
 ========================= */
@@ -128,7 +126,7 @@ body {
     calc(100vh - 70px);
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -244,7 +242,7 @@ button {
     white;
 
   color:
-    #2538b8;
+    #121A54;
 
   font-size:
     17px;
@@ -347,7 +345,7 @@ button:hover {
     3px;
 
   color:
-    #2538b8;
+    #121A54;
 
   font-weight:
     bold;
@@ -460,7 +458,7 @@ p {
     50px;
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -610,7 +608,7 @@ p {
 .grupo-campo textarea:focus {
 
   border-color:
-    #2538b8;
+    #121A54;
 
   box-shadow:
     0 0 0 3px
@@ -636,7 +634,7 @@ p {
     100%;
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -872,7 +870,7 @@ footer p {
     58px;
 
   color:
-    #2538b8;
+    #121A54;
 
   margin:
     10px 0 30px;
@@ -931,7 +929,7 @@ footer p {
     16px 30px;
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -1037,7 +1035,7 @@ footer p {
     white;
 
   color:
-    #2538b8;
+    #121A54;
 
   text-decoration:
     none;
@@ -1074,7 +1072,7 @@ footer p {
 .plantilla-encabezado {
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -1199,10 +1197,10 @@ footer p {
     white;
 
   color:
-    #2538b8;
+    #121A54;
 
   border:
-    2px solid #2538b8;
+    2px solid #121A54;
 
   border-radius:
     30px;
@@ -1219,7 +1217,7 @@ footer p {
 .filtro-btn:hover {
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -1230,7 +1228,7 @@ footer p {
 .filtro-btn.activo {
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -1420,7 +1418,7 @@ footer p {
     0 0 6px;
 
   color:
-    #2538b8;
+    #121A54;
 
   font-size:
     14px;
@@ -1586,7 +1584,7 @@ footer p {
 .plantilla-encabezado {
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -1711,10 +1709,10 @@ footer p {
     white;
 
   color:
-    #2538b8;
+    #121A54;
 
   border:
-    2px solid #2538b8;
+    2px solid #121A54;
 
   border-radius:
     30px;
@@ -1731,7 +1729,7 @@ footer p {
 .filtro-btn:hover {
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -1742,7 +1740,7 @@ footer p {
 .filtro-btn.activo {
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     white;
@@ -1932,7 +1930,7 @@ footer p {
     0 0 6px;
 
   color:
-    #2538b8;
+    #121A54;
 
   font-size:
     14px;
@@ -2492,7 +2490,7 @@ footer p {
 
   margin-bottom: 10px;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-size: 14px;
   font-weight: 800;
@@ -2540,7 +2538,7 @@ footer p {
 
   background: #ffffff;
 
-  border-left: 5px solid #2538b8;
+  border-left: 5px solid #121A54;
 
   border-radius: 0 14px 14px 0;
 
@@ -2555,7 +2553,7 @@ footer p {
 
   margin-bottom: 6px;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-size: 20px;
 }
@@ -2736,7 +2734,7 @@ footer p {
 /* BLOQUE ABIERTO */
 
 .nosotros-bloque[open] {
-  border-color: #2538b8;
+  border-color: #121A54;
 
   box-shadow:
     0 12px 30px
@@ -2797,7 +2795,7 @@ footer p {
 /* CABECERA CUANDO ESTÁ ABIERTO */
 
 .nosotros-bloque[open] summary {
-  background: #2538b8;
+  background: #121A54;
   color: #ffffff;
 }
 
@@ -2832,7 +2830,7 @@ footer p {
 
   border-radius: 50%;
 
-  background: #2538b8;
+  background: #121A54;
   color: #ffffff;
 
   font-size: 15px;
@@ -2849,7 +2847,7 @@ footer p {
 .nosotros-bloque[open]
 .acordeon-numero {
   background: #ffffff;
-  color: #2538b8;
+  color: #121A54;
 }
 
 
@@ -2891,11 +2889,11 @@ footer p {
 
   border:
     2px solid
-    #2538b8;
+    #121A54;
 
   border-radius: 50%;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-size: 0;
 
@@ -2923,7 +2921,7 @@ footer p {
 .nosotros-bloque[open]
 .acordeon-icono {
   background: #ffffff;
-  color: #2538b8;
+  color: #121A54;
 }
 
 .nosotros-bloque[open]
@@ -3012,14 +3010,14 @@ footer p {
 
   border-left:
     5px solid
-    #2538b8;
+    #121A54;
 
   border-radius:
     0 12px
     12px 0;
 
   color:
-    #2538b8 !important;
+    #121A54 !important;
 
   font-size:
     19px !important;
@@ -3056,7 +3054,7 @@ footer p {
 
   border-radius: 30px;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-size: 14px;
   font-weight: 700;
@@ -3118,7 +3116,7 @@ footer p {
   margin:
     0 0 12px;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-size: 19px;
 }
@@ -3179,7 +3177,7 @@ footer p {
 
   margin-bottom: 14px;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-size: 15px;
 }
@@ -3197,7 +3195,7 @@ footer p {
 .frase-corta {
   margin-bottom: 0;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-weight: 700;
 }
@@ -3228,7 +3226,7 @@ footer p {
   padding:
     22px;
 
-  background: #2538b8;
+  background: #121A54;
   color: #ffffff;
 
   border-radius: 16px;
@@ -3281,7 +3279,7 @@ footer p {
 
   gap: 8px;
 
-  background: #2538b8;
+  background: #121A54;
 
   border-radius: 16px;
 
@@ -3304,7 +3302,7 @@ footer p {
   padding:
     65px 30px;
 
-  background: #2538b8;
+  background: #121A54;
   color: #ffffff;
 
   text-align: center;
@@ -3994,7 +3992,7 @@ footer p {
     65px 80px;
 
   background:
-    #2538b8;
+    #121A54;
 
   color:
     #ffffff;
@@ -4186,7 +4184,7 @@ footer p {
     #ffffff;
 
   color:
-    #2538b8;
+    #121A54;
 }
 
 
@@ -4441,7 +4439,7 @@ footer p {
 
   margin-bottom: 10px;
 
-  color: #2538b8;
+  color: #121A54;
 
   font-size: 14px;
 
@@ -4598,16 +4596,13 @@ footer p {
       32px 20px;
   }
 
-
   .fotos-vacio-escudo img {
     width: 80px;
   }
 
-
   .fotos-vacio h3 {
     font-size: 23px;
   }
-
 
   .fotos-vacio p {
     font-size: 15px;
