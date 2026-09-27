@@ -1320,6 +1320,40 @@ body.galeria-abierta {
 @media (max-width: 700px) {
 
   .pagina-fotos
+.grid-partidos {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.pagina-fotos
+.partido-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+.pagina-fotos
+.partido-info {
+  padding: 22px;
+}
+
+.pagina-fotos
+.partido-info h3 {
+  font-size: 22px;
+}
+
+.pagina-fotos
+.partido-info p {
+  font-size: 15px;
+}
+
+.pagina-fotos
+.partido-boton {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+
+  .pagina-fotos
   .partido-portada {
     height: 300px;
   }
