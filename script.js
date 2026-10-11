@@ -232,164 +232,187 @@ function recibirPlantilla(
 
 }
 
-
 /* =========================================
    CREAR TARJETA DE JUGADOR
+   CON FOTO GIRATORIA 3D
 ========================================= */
 
-function crearTarjetaJugador(
-  jugador
-) {
+function crearTarjetaJugador(jugador) {
 
-  const tarjeta =
-    document.createElement(
-      "article"
-    );
-
-  tarjeta.className =
-    "jugadora-card";
-
+  const tarjeta = document.createElement("article");
+  tarjeta.className = "jugadora-card";
 
   const posicionNormalizada =
-    normalizarPosicion(
-      jugador.posicion
-    );
+    normalizarPosicion(jugador.posicion);
 
-  tarjeta.dataset.posicion =
-    posicionNormalizada;
+  tarjeta.dataset.posicion = posicionNormalizada;
 
+  // CONTENEDOR DE LA FOTOGRAFÍA
+  const contenedorFoto = document.createElement("div");
+  contenedorFoto.className = "jugadora-foto";
 
-  /* FOTO */
+  // BOTÓN QUE PERMITE GIRAR LA FOTO
+  const botonGiro = document.createElement("button");
+  botonGiro.type = "button";
+  botonGiro.className = "jugadora-giro-boton";
 
-  const contenedorFoto =
-    document.createElement(
-      "div"
-    );
+  botonGiro.setAttribute(
+    "aria-label",
+    "Ver datos de " + (jugador.nombre || "jugador")
+  );
 
-  contenedorFoto.className =
-    "jugadora-foto";
+  botonGiro.setAttribute("aria-pressed", "false");
 
+  // ELEMENTO INTERIOR QUE GIRA
+  const interior = document.createElement("div");
+  interior.className = "jugadora-giro-interior";
 
-  const urlFoto =
-    convertirLinkDrive(
-      jugador.foto
-    );
+  // =====================================
+  // CARA FRONTAL
+  // =====================================
 
+  const frontal = document.createElement("div");
+  frontal.className = "jugadora-cara jugadora-frontal";
+
+  const urlFoto = convertirLinkDrive(jugador.foto);
 
   if (urlFoto) {
 
-    const imagen =
-      document.createElement(
-        "img"
-      );
+    const imagen = document.createElement("img");
 
-    imagen.src =
-      urlFoto;
+    imagen.src = urlFoto;
+    imagen.alt = jugador.nombre || "Jugador UDA";
+    imagen.loading = "lazy";
 
-    imagen.alt =
-      jugador.nombre;
+    imagen.onerror = function() {
 
-    imagen.onerror =
-      function() {
+      imagen.remove();
+      frontal.prepend(crearPlaceholder());
 
-        imagen.remove();
+    };
 
-        const placeholder =
-          crearPlaceholder();
-
-        contenedorFoto.prepend(
-          placeholder
-        );
-
-      };
-
-    contenedorFoto.appendChild(
-      imagen
-    );
+    frontal.appendChild(imagen);
 
   } else {
 
-    contenedorFoto.appendChild(
-      crearPlaceholder()
-    );
+    frontal.appendChild(crearPlaceholder());
 
   }
 
+  // DORSAL ORIGINAL
+  const dorsal = document.createElement("span");
+  dorsal.className = "dorsal";
+  dorsal.textContent = formatearDorsal(jugador.dorsal);
 
-  /* DORSAL */
+  frontal.appendChild(dorsal);
 
-  const dorsal =
-    document.createElement(
-      "span"
+  // =====================================
+  // CARA POSTERIOR
+  // =====================================
+
+  const posterior = document.createElement("div");
+  posterior.className = "jugadora-cara jugadora-posterior";
+
+  const tituloPosterior = document.createElement("h3");
+  tituloPosterior.textContent = "FICHA DEL JUGADOR";
+
+  posterior.appendChild(tituloPosterior);
+
+  // FUNCIÓN LOCAL PARA CREAR DATOS
+  function agregarDato(etiqueta, valor) {
+
+    const fila = document.createElement("div");
+    fila.className = "jugadora-dato";
+
+    const nombreDato = document.createElement("span");
+    nombreDato.className = "jugadora-dato-etiqueta";
+    nombreDato.textContent = etiqueta;
+
+    const valorDato = document.createElement("span");
+    valorDato.className = "jugadora-dato-valor";
+
+    const texto = String(valor ?? "").trim();
+    valorDato.textContent = texto || "—";
+
+    fila.appendChild(nombreDato);
+    fila.appendChild(valorDato);
+    posterior.appendChild(fila);
+
+  }
+
+  agregarDato("Dorsal", formatearDorsal(jugador.dorsal));
+  agregarDato("Fecha de nacimiento", jugador.fechaNacimiento);
+  agregarDato("Edad", jugador.edad);
+  agregarDato("Estatura", jugador.estatura);
+  agregarDato("Minutos jugados", jugador.minutosJugados);
+  agregarDato("Goles", jugador.goles);
+  agregarDato("Reconocimientos", jugador.reconocimientos);
+
+  const mensajeGiro = document.createElement("span");
+  mensajeGiro.className = "jugadora-volver";
+  mensajeGiro.textContent = "Presiona para volver";
+
+  posterior.appendChild(mensajeGiro);
+
+  // =====================================
+  // ARMAR LAS DOS CARAS
+  // =====================================
+
+  interior.appendChild(frontal);
+  interior.appendChild(posterior);
+  botonGiro.appendChild(interior);
+  contenedorFoto.appendChild(botonGiro);
+
+  // =====================================
+  // EVENTO DE GIRO
+  // =====================================
+
+  botonGiro.addEventListener("click", function() {
+
+    const girada = contenedorFoto.classList.toggle(
+      "jugadora-girada"
     );
 
-  dorsal.className =
-    "dorsal";
-
-  dorsal.textContent =
-    formatearDorsal(
-      jugador.dorsal
+    botonGiro.setAttribute(
+      "aria-pressed",
+      String(girada)
     );
 
-  contenedorFoto.appendChild(
-    dorsal
-  );
-
-
-  /* INFORMACIÓN */
-
-  const informacion =
-    document.createElement(
-      "div"
+    botonGiro.setAttribute(
+      "aria-label",
+      (girada ? "Volver a la foto de " : "Ver datos de ") +
+      (jugador.nombre || "jugador")
     );
 
-  informacion.className =
-    "jugadora-info";
+  });
 
+  // =====================================
+  // INFORMACIÓN INFERIOR ORIGINAL
+  // =====================================
 
-  const posicion =
-    document.createElement(
-      "p"
-    );
+  const informacion = document.createElement("div");
+  informacion.className = "jugadora-info";
 
-  posicion.className =
-    "posicion";
+  const posicion = document.createElement("p");
+  posicion.className = "posicion";
+  posicion.textContent = jugador.posicion || "";
 
-  posicion.textContent =
-    jugador.posicion;
+  const nombre = document.createElement("h2");
+  nombre.textContent = jugador.nombre || "";
 
+  informacion.appendChild(posicion);
+  informacion.appendChild(nombre);
 
-  const nombre =
-    document.createElement(
-      "h2"
-    );
+  // =====================================
+  // ARMAR TARJETA COMPLETA
+  // =====================================
 
-  nombre.textContent =
-    jugador.nombre;
-
-
-  informacion.appendChild(
-    posicion
-  );
-
-  informacion.appendChild(
-    nombre
-  );
-
-
-  tarjeta.appendChild(
-    contenedorFoto
-  );
-
-  tarjeta.appendChild(
-    informacion
-  );
-
+  tarjeta.appendChild(contenedorFoto);
+  tarjeta.appendChild(informacion);
 
   return tarjeta;
 
 }
-
 
 /* =========================================
    PLACEHOLDER

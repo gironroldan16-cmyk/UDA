@@ -4609,3 +4609,213 @@ footer p {
   }
 
 }
+
+
+/* =====================================================
+   UDA - TARJETAS GIRATORIAS DE JUGADORES
+   ===================================================== */
+
+/* Contenedor de la fotografía */
+.pagina-plantilla .jugadora-foto {
+  position: relative;
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+/* Botón que ocupa toda la fotografía */
+.pagina-plantilla .jugadora-giro-boton {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Evitar desplazamiento del botón al pasar el mouse */
+.pagina-plantilla .jugadora-giro-boton:hover {
+  transform: none;
+}
+
+/* Accesibilidad con teclado */
+.pagina-plantilla .jugadora-giro-boton:focus-visible {
+  outline: 3px solid #f5c542;
+  outline-offset: -4px;
+  z-index: 2;
+}
+
+/* Elemento encargado del giro */
+.pagina-plantilla .jugadora-giro-interior {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.75s ease;
+}
+
+/* Activar giro */
+.pagina-plantilla
+.jugadora-foto.jugadora-girada
+.jugadora-giro-interior {
+  transform: rotateY(180deg);
+}
+
+/* Ambas caras */
+.pagina-plantilla .jugadora-cara {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Cara frontal */
+.pagina-plantilla .jugadora-frontal {
+  background: #dfe4ef;
+  transform: rotateY(0deg);
+}
+
+/* Conservar fotografía */
+.pagina-plantilla .jugadora-frontal img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Cara posterior */
+.pagina-plantilla .jugadora-posterior {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  padding: 15px;
+  background: linear-gradient(
+    145deg,
+    #121A54 0%,
+    #243bb6 100%
+  );
+  color: #ffffff;
+  text-align: left;
+  transform: rotateY(180deg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff66 transparent;
+}
+
+/* Título de la ficha */
+.pagina-plantilla .jugadora-posterior h3 {
+  margin: 0 0 8px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Cada dato */
+.pagina-plantilla .jugadora-dato {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+/* Nombre del dato */
+.pagina-plantilla .jugadora-dato-etiqueta {
+  color: #cbd7ff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Valor del dato */
+.pagina-plantilla .jugadora-dato-valor {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* Indicación para regresar */
+.pagina-plantilla .jugadora-volver {
+  display: block;
+  margin-top: auto;
+  padding-top: 10px;
+  color: #dfe6ff;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* No alterar los datos inferiores de la tarjeta */
+.pagina-plantilla .jugadora-info {
+  position: relative;
+  background: #ffffff;
+}
+
+/* ==========================================
+   ADAPTACIÓN PARA CELULARES
+   ========================================== */
+
+@media (max-width: 700px) {
+
+  .pagina-plantilla .jugadora-posterior {
+    padding: 9px;
+    gap: 2px;
+  }
+
+  .pagina-plantilla .jugadora-posterior h3 {
+    font-size: 11px;
+    padding-bottom: 5px;
+    margin-bottom: 3px;
+  }
+
+  .pagina-plantilla .jugadora-dato {
+    padding: 2px 0;
+    gap: 1px;
+  }
+
+  .pagina-plantilla .jugadora-dato-etiqueta {
+    font-size: 8px;
+  }
+
+  .pagina-plantilla .jugadora-dato-valor {
+    font-size: 10px;
+  }
+
+  .pagina-plantilla .jugadora-volver {
+    font-size: 9px;
+    padding-top: 5px;
+  }
+
+}
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+
+  .pagina-plantilla .jugadora-giro-interior {
+    transition: none;
+  }
+
+}
